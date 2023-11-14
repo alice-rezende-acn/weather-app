@@ -5,10 +5,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Hello weather app
+        Hello weather app with React!
       </header>
     </div>
-  );
+  ); 
 }
 
 export default App;
