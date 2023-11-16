@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 import Weather from "./components/Weather";
 import Search from "./components/Search";
-import ToggleButton from "./components/ToggleButton";
+import ToggleButtons from "./components/ToggleButtons";
 import fetchCityData from "./utils/fetchCityData";
 
 export default function App() {
@@ -34,7 +34,7 @@ export default function App() {
     <div className="App">
       <div className="action-bar">
         <div className="weather-system">
-          <ToggleButton 
+          <ToggleButtons 
             currentValue={unit}
             options={[
               { value: "metric", label: "°C" },
@@ -45,7 +45,7 @@ export default function App() {
         </div>
         <Search onClickHandle={handleClick} />
         <div className="weather-system">
-          <ToggleButton 
+          <ToggleButtons
             currentValue={lang}
             options={[
               { value: "EN", label: "EN" },

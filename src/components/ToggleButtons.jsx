@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ToggleButton = ({ currentValue, options, onToggle }) => {
+const ToggleButtons = ({ currentValue, options, onToggle }) => {
     return (
       <div>
         {options.map(option => (
