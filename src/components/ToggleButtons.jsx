@@ -16,4 +16,4 @@ const ToggleButtons = ({ currentValue, options, onToggle }) => {
     );
   };
   
-  export default ToggleButton;
+  export default ToggleButtons;

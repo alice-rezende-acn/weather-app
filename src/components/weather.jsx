@@ -34,7 +34,7 @@ export default function Weather({lat, long, city, unit, lang}) {
       lang={lang}
       locationLabel={city}
       unitsLabels={{ temperature: tempLabel, windSpeed: windLabel }}
-      showForecast="false"
+      showForecast={false}
     />
   );
 }
