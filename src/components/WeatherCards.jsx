@@ -4,9 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function WeatherCards({ cityList, unit, lang }) {
   const navigate = useNavigate();
   const showDetails = (city, lat, long) => {
-    navigate(
-      `/details/${city}?lat=${lat}&long=${long}&unit=${unit}&lang=${lang}`
-    );
+    navigate(`/details/${city}?lat=${lat}&long=${long}`);
   };
   return (
     <div className="weather-cards-container">

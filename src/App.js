@@ -27,6 +27,14 @@ export default function App() {
     const cityValue = e.target.elements.city.value;
     const newCityData = await fetchCityData(cityValue);
     if (newCityData) {
+      const cityExists = cityList.find(
+        (city) => city.city === newCityData.city
+      );
+      if (cityExists) {
+        alert("This city already exists. Enter a new city.");
+        return;
+      }
+
       setCityList((prevCities) => [...prevCities, newCityData]);
     }
   };
@@ -51,7 +59,10 @@ export default function App() {
               <WeatherCards cityList={cityList} unit={unit} lang={lang} />
             }
           />
-          <Route path="/details/:city" element={<WeatherDetails />} />
+          <Route
+            path="/details/:city"
+            element={<WeatherDetails unit={unit} lang={lang} />}
+          />
         </Route>
       </Routes>
     </Router>

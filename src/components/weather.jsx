@@ -27,7 +27,6 @@ export default function Weather({
     }
   }, [unit]);
 
-  console.log({ lat, long, city, unit, lang });
   const { tempLabel, windLabel } = unitsLabels;
   const { data, isLoading, errorMessage } = useOpenWeather({
     key: process.env.REACT_APP_API_KEY,
