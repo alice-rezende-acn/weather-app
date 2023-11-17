@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ToggleButtons = ({ currentValue, options, onToggle }) => {
+export default function ToggleButtons({ currentValue, options, onToggle }) {
     return (
       <div>
         {options.map(option => (
@@ -16,4 +16,4 @@ const ToggleButtons = ({ currentValue, options, onToggle }) => {
     );
   };
   
-  export default ToggleButtons;
+  
