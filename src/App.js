@@ -32,30 +32,28 @@ export default function App() {
   };
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout
-                unit={unit}
-                lang={lang}
-                setUnit={setUnit}
-                setLang={setLang}
-                handleClick={handleClick}
-              />
-            }
-          >
-            <Route
-              index
-              element={
-                <WeatherCards cityList={cityList} unit={unit} lang={lang} />
-              }
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout
+              unit={unit}
+              lang={lang}
+              setUnit={setUnit}
+              setLang={setLang}
+              handleClick={handleClick}
             />
-            <Route path="/details/:city" element={WeatherDetails} />
-          </Route>
-        </Routes>
-      </div>
+          }
+        >
+          <Route
+            index
+            element={
+              <WeatherCards cityList={cityList} unit={unit} lang={lang} />
+            }
+          />
+          <Route path="/details/:city" element={<WeatherDetails />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

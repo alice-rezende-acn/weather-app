@@ -62,8 +62,12 @@
   flex-wrap: wrap;
 }
 
+.weather-card-container {
+  width: 500px;
+}
+
 .rw-container {
-  margin: 40px;
+  margin: 20px;
 }
 
 .rw-container-left {
@@ -72,6 +76,13 @@
 
 .rw-container-right {
   padding: 0 20px;
+}
+.weather-details-container {
+  display: flex;
+  justify-content: center;
+}
+.weather-details-container .rw-container {
+  flex: 0 0 30%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

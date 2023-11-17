@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ReactWeather, { useOpenWeather } from 'react-open-weather';
+import { useState, useEffect } from "react";
+import ReactWeather, { useOpenWeather } from "react-open-weather";
 
-
-export default function Weather({lat, long, city, unit, lang}) {
-  const navigate = useNavigate();
-  const showDetails = () => {
-    navigate(`/details/${city}?lat=${lat}&long=${long}&unit=${unit}&lang=${lang}`);
-  };
-
-  const [unitsLabels, setUnitsLabels] = useState({ tempLabel: "C", windLabel: "Km/h" });
+export default function Weather({
+  lat,
+  long,
+  city,
+  unit,
+  lang,
+  showForecast = false,
+}) {
+  const [unitsLabels, setUnitsLabels] = useState({
+    tempLabel: "C",
+    windLabel: "Km/h",
+  });
   useEffect(() => {
     if (unit === "imperial") {
       setUnitsLabels({
@@ -23,7 +26,8 @@ export default function Weather({lat, long, city, unit, lang}) {
       });
     }
   }, [unit]);
-  
+
+  console.log({ lat, long, city, unit, lang });
   const { tempLabel, windLabel } = unitsLabels;
   const { data, isLoading, errorMessage } = useOpenWeather({
     key: process.env.REACT_APP_API_KEY,
@@ -31,7 +35,7 @@ export default function Weather({lat, long, city, unit, lang}) {
     lon: long,
     lang: lang,
     unit: unit, // values are (metric, standard, imperial)
-    });
+  });
   return (
     <ReactWeather
       isLoading={isLoading}
@@ -40,8 +44,7 @@ export default function Weather({lat, long, city, unit, lang}) {
       lang={lang}
       locationLabel={city}
       unitsLabels={{ temperature: tempLabel, windSpeed: windLabel }}
-      showForecast={false}
-      onClick={showDetails}
+      showForecast={showForecast}
     />
   );
 }
